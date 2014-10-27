@@ -1,0 +1,22 @@
+%%-*- mode: erlang -*-
+
+{application, bitcask_poc,
+  [
+    {description, "bitcask_poc"},
+    {vsn, git},
+    {modules, []},
+    {registered, []},
+    {applications, [kernel,
+      stdlib,
+      crypto,
+      mochiweb,
+      goldrush,
+      lager,
+      meck,
+      protobuffs,
+      riak_pb,
+      riakc
+    ]},
+    {mod, {bitcask_poc, []}},
+    {env, []}
+  ]}.
