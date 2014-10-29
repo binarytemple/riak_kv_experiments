@@ -9,6 +9,7 @@ ebin
 .rebar
 *.iml
 ltest/
+ltest2
 out
 rwsnoop
 typescript

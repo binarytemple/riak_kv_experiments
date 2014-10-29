@@ -28,7 +28,7 @@ init() ->
 
   %% This is where everything breaks ;-)
   {ok, State} = riak_kv_eleveldb_backend:start(0, [
-    {data_root, "ltest2", eleveldb}
+    {data_root, "ltest2"}
   ]),
   io:format("state: ~p ~n", [State]),
   try
