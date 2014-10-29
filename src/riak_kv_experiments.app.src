@@ -9,13 +9,13 @@
     {applications, [kernel,
       stdlib,
       crypto,
-      mochiweb,
+%%       mochiweb,
       goldrush,
       lager,
-      meck,
-      protobuffs,
-      riak_pb,
-      riakc
+      meck
+%%       protobuffs,
+%%       riak_pb,
+%%       riakc
     ]},
     {mod, {bitcask_poc, []}},
     {env, []}

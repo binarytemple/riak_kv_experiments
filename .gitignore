@@ -1,7 +1,15 @@
 .eunit
-deps
+deps/*
 *.o
 *.beam
 *.plt
 erl_crash.dump
 ebin
+.idea
+.rebar
+*.iml
+ltest/
+out
+rwsnoop
+typescript
+undefined/
