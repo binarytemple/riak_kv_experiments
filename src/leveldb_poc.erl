@@ -1,6 +1,7 @@
 -module(leveldb_poc).
 
--export([itterate_example/0, get_put_example/0]).
+-export([itterate_example/0, folding_example/0, get_put_example/0]).
+-define(MD_INDEX, <<"index">>).
 
 itterate_example() ->
   io:format("playtime with leveldb ~n", []),
@@ -15,6 +16,26 @@ itterate_example() ->
     {ok, <<"a">>, <<"x">>} == eleveldb:iterator_move(I, prev)
   after
     eleveldb:close(Ref)
+  end,
+  io:format("finished playtime with leveldb ~n", []),
+  erlang:exit("finished"),
+  ok.
+
+folding_example() ->
+  io:format("playtime with leveldb ~n", []),
+  {ok, State} = riak_kv_eleveldb_backend:start(0, []),
+  io:format("state: ~p ~n", [State]),
+  try
+    io:format("in the block  ~n", []),
+    riak_kv_eleveldb_backend:put(<<"foo">>, <<"bar">>, [], <<"dsadfa">>, State),
+    {ok, D, _} = riak_kv_eleveldb_backend:get(<<"foo">>, <<"bar">>, State),
+    io:format("retrieved ~p  ~n", [D]),
+    Keys = riak_kv_eleveldb_backend:fold_keys(fun(X, Y, Z) ->
+      io:format("folded over ~p ~p ~p ~n", [X, Y, Z]),
+      [] end, [], [], State),
+    io:format("finished the block  ~n", [])
+  after
+    riak_kv_eleveldb_backend:stop(State)
   end,
   io:format("finished playtime with leveldb ~n", []),
   erlang:exit("finished"),
