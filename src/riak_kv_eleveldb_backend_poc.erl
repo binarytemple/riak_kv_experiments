@@ -25,6 +25,8 @@ init() ->
 
 %%   app_helper:  get_prop_or_env(data_root, Config, eleveldb)
 
+
+  %% This is where everything breaks ;-)
   {ok, State} = riak_kv_eleveldb_backend:start(0, [
     {data_root, "ltest2", eleveldb}
   ]),
