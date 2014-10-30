@@ -10,6 +10,7 @@ ebin
 *.iml
 ltest/
 ltest2
+itest2
 out
 rwsnoop
 typescript
