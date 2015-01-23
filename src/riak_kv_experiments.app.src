@@ -1,6 +1,6 @@
 %%-*- mode: erlang -*-
 
-{application, bitcask_poc,
+{application, riak_kv_experiments,
   [
     {description, "bitcask_poc"},
     {vsn, git},
